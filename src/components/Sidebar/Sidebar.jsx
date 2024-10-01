@@ -38,26 +38,28 @@ export default class Sidebar extends React.Component {
     render() {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
+        const display = isOpened ? 'none' : 'inline'
 
         return (
             <div className={ containerClassnames }>
-                <div>
+                <div className='sidebar-header'>
                     <img
                         src={ logo }
                         alt="TensorFlow logo"
+                        className='logo'
                     />
-                    <span>TensorFlow</span>
-                    <button onClick={ this.toggleSidebar }>
+                    <span className='logo-text' style={{display: display}}>TensorFlow</span>
+                    <button className='open-btn' onClick={ this.toggleSidebar }>
                         <FontAwesomeIcon icon={ isOpened ? 'angle-left' : 'angle-right' } />
                     </button>
                 </div>
 
-                <div>
+                <div className='nav-links'>
                     {
                         routes.map((route) => (
-                            <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
+                            <div className='nav-link' key={ route.title } onClick={ () => this.goToRoute(route.path) }>
                                 <FontAwesomeIcon icon={ route.icon } />
-                                <span>{ route.title }</span>
+                                <span style={{display: display}}>{ route.title }</span>
                             </div>
                         ))
                     }
@@ -68,7 +70,7 @@ export default class Sidebar extends React.Component {
                         bottomRoutes.map((route) => (
                             <div key={ route.title } onClick={ () => this.goToRoute(route.path) }>
                                 <FontAwesomeIcon icon={ route.icon } />
-                                <span>{ route.title }</span>
+                                <span style={{display: display}}>{ route.title }</span>
                             </div>
                         ))
                     }
