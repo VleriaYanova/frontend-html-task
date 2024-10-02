@@ -38,7 +38,8 @@ export default class Sidebar extends React.Component {
     render() {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
-        const animation = isOpened ? {animation: 'none'} : {animationName: 'disappearAnimation', animationDuration:'0.5s', animationTimingFunction: 'linear', animationFillMode: 'forwards'};
+        const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
+        const animationSetyles = {animationName: animationName, animationDuration:'0.5s', animationTimingFunction: 'linear', animationFillMode: 'forwards'}
         const navWidth = isOpened ? {width: '12em'} : {with: '6em', padding: '20px'};
         return (
             <div className={containerClassnames}>
@@ -49,7 +50,7 @@ export default class Sidebar extends React.Component {
                             alt="TensorFlow logo"
                             className='logo'
                         />
-                        <span className='logo-text' style={animation}>TensorFlow</span>
+                        <span className='logo-text' style={animationSetyles}>TensorFlow</span>
                         <button className='open-btn' onClick={this.toggleSidebar}>
                             <FontAwesomeIcon icon={isOpened ? 'angle-left' : 'angle-right'} />
                         </button>
@@ -60,7 +61,7 @@ export default class Sidebar extends React.Component {
                             routes.map((route) => (
                                 <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
-                                    <span style={animation}>{route.title}</span>
+                                    <span style={animationSetyles}>{route.title}</span>
                                 </div>
                             ))
                         }
@@ -70,9 +71,9 @@ export default class Sidebar extends React.Component {
                 <div>
                     {
                         bottomRoutes.map((route) => (
-                            <div key={route.title} onClick={() => this.goToRoute(route.path)}>
+                            <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                 <FontAwesomeIcon icon={route.icon} />
-                                <span style={animation}>{route.title}</span>
+                                <span style={animationSetyles}>{route.title}</span>
                             </div>
                         ))
                     }

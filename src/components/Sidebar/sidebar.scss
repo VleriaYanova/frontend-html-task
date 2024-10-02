@@ -5,8 +5,8 @@ $btn-color-hover-light: #f1f5f9;
 $btn-color-active-dark: #000c45;
 $btn-color-hover-dark: #0f172a;
 $font-color-active: #0020c3;
-$font-color-hover: #0f172a;
-$main-font-color: #b9cce6;
+$font-color-hover: #eef0f5;
+$main-font-color: #9db9e0;
 
 .sidebar{
     background-color: $bg-color-dark;
@@ -20,6 +20,8 @@ $main-font-color: #b9cce6;
     align-items: center;
     justify-content: space-between;
     color: $main-font-color;
+    padding: 20px 0;
+    box-sizing: border-box;
     &.opened{
         width: 15em;
     }
@@ -78,7 +80,8 @@ $main-font-color: #b9cce6;
     padding-left: 15px;
     gap: 10px;
     &:hover{
-        background-color: $font-color-hover;
+        background-color: $btn-color-hover-dark;
+        color: $font-color-hover;
     }
 }
 
@@ -95,4 +98,19 @@ $main-font-color: #b9cce6;
       display: none;
     }
   }
+
+  @keyframes appearAnimation{
+    0%{
+      opacity: 0;
+      display: none;
+    }
+    50%{
+        display: inline;
+    }
+    100%{
+        opacity: 1;
+        display: inline;
+    }
+  }
+
 
