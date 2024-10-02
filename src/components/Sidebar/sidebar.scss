@@ -4,7 +4,7 @@ $btn-color-active-light: #f0f2ff;
 $btn-color-hover-light: #f1f5f9;
 $btn-color-active-dark: #000c45;
 $btn-color-hover-dark: #0f172a;
-$font-color-active: #0020c3;
+$font-color-active: #f1f1f1;
 $font-color-hover: #eef0f5;
 $main-font-color: #9db9e0;
 
@@ -73,16 +73,25 @@ $main-font-color: #9db9e0;
 
 .nav-link{
     height: 3em;
+    width: 100%;
     border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    padding-left: 15px;
     gap: 10px;
     &:hover{
         background-color: $btn-color-hover-dark;
         color: $font-color-hover;
+    }
+
+    &.active{
+        background-color: $btn-color-active-dark;
+        color: $font-color-active;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 5px;
     }
 }
 

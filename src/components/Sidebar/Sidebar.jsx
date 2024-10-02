@@ -40,7 +40,7 @@ export default class Sidebar extends React.Component {
         const containerClassnames = classnames('sidebar', { opened: isOpened });
         const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
         const animationSetyles = {animationName: animationName, animationDuration:'0.2s', animationTimingFunction: 'linear', animationFillMode: 'forwards'}
-        const navWidth = isOpened ? {width: '12em'} : {with: '6em', padding: '15px'};
+        const navPadding = isOpened ? {paddingLeft: '15px'} : {padding: '15px'};
         return (
             <div className={containerClassnames}>
                 <div className='sidebar-top-elem'>
@@ -59,7 +59,7 @@ export default class Sidebar extends React.Component {
                     <div>
                         {
                             routes.map((route) => (
-                                <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link active' style={navPadding} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animationSetyles}>{route.title}</span>
                                 </div>
@@ -71,7 +71,7 @@ export default class Sidebar extends React.Component {
                 <div>
                     {
                         bottomRoutes.map((route) => (
-                            <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                            <div className='nav-link' style={navPadding} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                 <FontAwesomeIcon icon={route.icon} />
                                 <span style={animationSetyles}>{route.title}</span>
                             </div>
