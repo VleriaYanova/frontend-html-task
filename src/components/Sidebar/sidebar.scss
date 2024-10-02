@@ -10,26 +10,28 @@ $main-font-color: #9db9e0;
 
 .sidebar{
     background-color: $bg-color-dark;
-    width: 5em;
+    width: 4em;
     height: 50em;
     border-radius: 1em;
     border: 4px solid #29303a;
-    transition: all 0.5s linear;
+    transition: all 0.2s linear;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
     justify-content: space-between;
     color: $main-font-color;
-    padding: 20px 0;
+    padding: 20px 5px;
     box-sizing: border-box;
     &.opened{
         width: 15em;
+        padding: 20px 20px;
     }
 }
 
 .sidebar-top-elem{
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
@@ -48,7 +50,7 @@ $main-font-color: #9db9e0;
 
 .open-btn{
     position: absolute;
-    left: 228px;
+    right: -45px;
     border-radius: 2em;
     outline: none;
     border: none;
@@ -67,7 +69,6 @@ $main-font-color: #9db9e0;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    transition: all 0.5s linear;
 }
 
 .nav-link{
@@ -89,9 +90,6 @@ $main-font-color: #9db9e0;
     0%{
       opacity: 1;
       display: inline;
-    }
-    50%{
-        display: none;
     }
     100%{
       opacity: 0;
