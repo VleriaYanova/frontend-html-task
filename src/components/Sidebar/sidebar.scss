@@ -8,33 +8,38 @@ $font-color-active: #f1f1f1;
 $font-color-hover: #eef0f5;
 $main-font-color: #9db9e0;
 
+@mixin transition05s{
+    transition: all 0.5s allow-discrete ease;
+}
+
+@mixin transition03s{
+    transition: all 0.3s allow-discrete ease;
+}
 .sidebar {
+    @include transition05s;
     background-color: $bg-color-dark;
     width: 5em;
     height: 50em;
     border-radius: 1em;
     border: 4px solid #29303a;
-    transition: all 0.5s allow-discrete;
     display: flex;
     flex-direction: column;
     position: relative;
     margin: 0 auto;
     align-items: center;
     color: $main-font-color;
-    padding: 20px 12px;
+    padding: 20px 0;
     box-sizing: border-box;
-
     &.opened {
         width: 15em;
-        padding: 20px 20px;
     }
 }
 
 .sidebar-header {
+    @include transition03s;
     display: flex;
     align-items: center;
     position: relative;
-    transition: all 0.2s allow-discrete;
     margin-bottom: 1em;
 }
 
@@ -76,7 +81,7 @@ $main-font-color: #9db9e0;
     gap: 10px;
     padding: 15px;
     width: 12em;
-    transition: width 0.2s ease;
+    @include transition03s;
     &:hover {
         background-color: $btn-color-hover-dark;
         color: $font-color-hover;
