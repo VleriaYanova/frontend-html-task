@@ -39,11 +39,9 @@ export default class Sidebar extends React.Component {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
         const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
-        const animationSetyles = {animationName: animationName, animationDuration:'0.2s', animationTimingFunction: 'linear', animationFillMode: 'forwards'}
-        const navPadding = isOpened ? {paddingLeft: '15px'} : {padding: '15px'};
+        const animationSetyles = {animationName: animationName, animationDuration:'0.3s', animationTimingFunction: 'linear', animationFillMode: 'forwards'};
         return (
             <div className={containerClassnames}>
-                <div className='sidebar-top-elem'>
                     <div className='sidebar-header'>
                         <img
                             src={logo}
@@ -59,19 +57,18 @@ export default class Sidebar extends React.Component {
                     <div>
                         {
                             routes.map((route) => (
-                                <div className='nav-link active' style={navPadding} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link active' style={isOpened ? {width: '12em'} : {width: '3em'}} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animationSetyles}>{route.title}</span>
                                 </div>
                             ))
                         }
                     </div>
-                </div>
 
                 <div>
                     {
                         bottomRoutes.map((route) => (
-                            <div className='nav-link' style={navPadding} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                            <div className='nav-link'style={isOpened ? {width: '12em'} : {width: '3em'}}  key={route.title} onClick={() => this.goToRoute(route.path)}>
                                 <FontAwesomeIcon icon={route.icon} />
                                 <span style={animationSetyles}>{route.title}</span>
                             </div>
