@@ -59,7 +59,7 @@ export default class Sidebar extends React.Component {
                     <div>
                         {
                             routes.map((route) => (
-                                <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link active' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animationSetyles}>{route.title}</span>
                                 </div>
