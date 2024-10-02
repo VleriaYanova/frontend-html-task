@@ -39,10 +39,10 @@ export default class Sidebar extends React.Component {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
         const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
-        const animationSetyles = {animationName: animationName, animationDuration:'0.3s', animationTimingFunction: 'linear', animationFillMode: 'forwards'};
+        const animationSetyles = {animationName: animationName, animationDuration:'0.3s', animationTimingFunction: 'ease', animationFillMode: 'forwards'};
         return (
             <div className={containerClassnames}>
-                    <div className='sidebar-header'>
+                    <div className='sidebar-header' style={isOpened ? {width: '12em'} : {width: '3em'}}>
                         <img
                             src={logo}
                             alt="TensorFlow logo"
@@ -57,7 +57,7 @@ export default class Sidebar extends React.Component {
                     <div>
                         {
                             routes.map((route) => (
-                                <div className='nav-link active' style={isOpened ? {width: '12em'} : {width: '3em'}} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link' style={isOpened ? {width: '12em'} : {width: '3em'}} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animationSetyles}>{route.title}</span>
                                 </div>
@@ -65,7 +65,7 @@ export default class Sidebar extends React.Component {
                         }
                     </div>
 
-                <div>
+                <div className='bottom-elem'>
                     {
                         bottomRoutes.map((route) => (
                             <div className='nav-link'style={isOpened ? {width: '12em'} : {width: '3em'}}  key={route.title} onClick={() => this.goToRoute(route.path)}>
