@@ -39,7 +39,7 @@ export default class Sidebar extends React.Component {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
         const animation = isOpened ? {animation: 'none'} : {animationName: 'disappearAnimation', animationDuration:'0.5s', animationTimingFunction: 'linear', animationFillMode: 'forwards'};
-
+        const navWidth = isOpened ? {width: '12em'} : {with: '6em', padding: '20px'};
         return (
             <div className={containerClassnames}>
                 <div className='sidebar-top-elem'>
@@ -58,7 +58,7 @@ export default class Sidebar extends React.Component {
                     <div className='nav-links'>
                         {
                             routes.map((route) => (
-                                <div className='nav-link' key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animation}>{route.title}</span>
                                 </div>

@@ -14,7 +14,7 @@ $main-font-color: #b9cce6;
     height: 50em;
     border-radius: 1em;
     border: 4px solid #29303a;
-    transition: all 0.5s;
+    transition: all 0.5s linear;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,11 +65,10 @@ $main-font-color: #b9cce6;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    transition: all 2s;
+    transition: all 0.5s linear;
 }
 
 .nav-link{
-    width: 12em;
     height: 3em;
     border-radius: 12px;
     cursor: pointer;
@@ -84,12 +83,16 @@ $main-font-color: #b9cce6;
 }
 
 @keyframes disappearAnimation{
-    from{
+    0%{
       opacity: 1;
+      display: inline;
     }
-    to{
-      display: none;
+    50%{
+        display: none;
+    }
+    100%{
       opacity: 0;
+      display: none;
     }
   }
 
