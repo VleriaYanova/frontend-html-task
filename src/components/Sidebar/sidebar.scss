@@ -8,13 +8,14 @@ $font-color-active: #f1f1f1;
 $font-color-hover: #eef0f5;
 $main-font-color: #9db9e0;
 
-@mixin longTransition{
+@mixin longTransition {
     transition: all 0.3s allow-discrete ease;
 }
 
-@mixin shortTransition{
+@mixin shortTransition {
     transition: all 0.2s allow-discrete ease;
 }
+
 .sidebar {
     @include longTransition;
     background-color: $bg-color-dark;
@@ -30,6 +31,7 @@ $main-font-color: #9db9e0;
     color: $main-font-color;
     padding: 20px 0;
     box-sizing: border-box;
+
     &.opened {
         width: 15em;
     }
@@ -83,6 +85,7 @@ $main-font-color: #9db9e0;
     padding: 15px;
     width: 12em;
     @include shortTransition;
+
     &:hover {
         background-color: $btn-color-hover-dark;
         color: $font-color-hover;
@@ -98,7 +101,7 @@ $main-font-color: #9db9e0;
     }
 }
 
-.bottom-elem{
+.bottom-elem {
     margin-top: auto;
 }
 

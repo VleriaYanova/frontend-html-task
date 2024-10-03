@@ -38,39 +38,39 @@ export default class Sidebar extends React.Component {
     render() {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
-        const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
-        const animationSetyles = {animationName: animationName, animationDuration:'0.2s', animationTimingFunction: 'ease', animationFillMode: 'forwards'};
-        const width = isOpened ? {width: '12em'} : {width: '3em'};
-        
+        const animationName = isOpened ? 'appearAnimation' : 'disappearAnimation';
+        const animationSetyles = { animationName: animationName, animationDuration: '0.2s', animationTimingFunction: 'ease', animationFillMode: 'forwards' };
+        const width = isOpened ? { width: '12em' } : { width: '3em' };
+
         return (
             <div className={containerClassnames}>
-                    <div className='sidebar-header' style={width}>
-                        <img
-                            src={logo}
-                            alt="TensorFlow logo"
-                            className='logo'
-                        />
-                        <span className='logo-text' style={animationSetyles}>TensorFlow</span>
-                        <button className='open-btn' onClick={this.toggleSidebar}>
-                            <FontAwesomeIcon icon={isOpened ? 'angle-left' : 'angle-right'} />
-                        </button>
-                    </div>
+                <div className='sidebar-header' style={width}>
+                    <img
+                        src={logo}
+                        alt="TensorFlow logo"
+                        className='logo'
+                    />
+                    <span className='logo-text' style={animationSetyles}>TensorFlow</span>
+                    <button className='open-btn' onClick={this.toggleSidebar}>
+                        <FontAwesomeIcon icon={isOpened ? 'angle-left' : 'angle-right'} />
+                    </button>
+                </div>
 
-                    <div className='top-elem'>
-                        {
-                            routes.map((route) => (
-                                <div className='nav-link' style={width} key={route.title} onClick={() => this.goToRoute(route.path)}>
-                                    <FontAwesomeIcon icon={route.icon} />
-                                    <span style={animationSetyles}>{route.title}</span>
-                                </div>
-                            ))
-                        }
-                    </div>
+                <div className='top-elem'>
+                    {
+                        routes.map((route) => (
+                            <div className='nav-link' style={width} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <FontAwesomeIcon icon={route.icon} />
+                                <span style={animationSetyles}>{route.title}</span>
+                            </div>
+                        ))
+                    }
+                </div>
 
                 <div className='bottom-elem'>
                     {
                         bottomRoutes.map((route) => (
-                            <div className='nav-link active'style={width}  key={route.title} onClick={() => this.goToRoute(route.path)}>
+                            <div className='nav-link active' style={width} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                 <FontAwesomeIcon icon={route.icon} />
                                 <span style={animationSetyles}>{route.title}</span>
                             </div>
