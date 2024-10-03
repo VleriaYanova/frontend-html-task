@@ -40,7 +40,7 @@ $main-font-color: #9db9e0;
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 .logo {
@@ -50,6 +50,7 @@ $main-font-color: #9db9e0;
 
 .open-btn {
     position: absolute;
+    will-change: transform;
     right: -50px;
     border-radius: 2em;
     outline: none;
@@ -93,7 +94,7 @@ $main-font-color: #9db9e0;
     }
 
     &:not(:last-child) {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 }
 

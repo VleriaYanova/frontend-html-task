@@ -39,12 +39,12 @@ export default class Sidebar extends React.Component {
         const { isOpened } = this.state;
         const containerClassnames = classnames('sidebar', { opened: isOpened });
         const animationName = isOpened ?  'appearAnimation' : 'disappearAnimation';
-        const animationSetyles = {animationName: animationName, animationDuration:'0.3s', animationTimingFunction: 'ease', animationFillMode: 'forwards'};
-        const navWidth = isOpened ? {width: '12em'} : {width: '3em'};
-
+        const animationSetyles = {animationName: animationName, animationDuration:'0.2s', animationTimingFunction: 'ease', animationFillMode: 'forwards'};
+        const width = isOpened ? {width: '12em'} : {width: '3em'};
+        
         return (
             <div className={containerClassnames}>
-                    <div className='sidebar-header' style={isOpened ? {width: '12em'} : {width: '3em'}}>
+                    <div className='sidebar-header' style={width}>
                         <img
                             src={logo}
                             alt="TensorFlow logo"
@@ -56,10 +56,10 @@ export default class Sidebar extends React.Component {
                         </button>
                     </div>
 
-                    <div>
+                    <div className='top-elem'>
                         {
                             routes.map((route) => (
-                                <div className='nav-link active' style={navWidth} key={route.title} onClick={() => this.goToRoute(route.path)}>
+                                <div className='nav-link' style={width} key={route.title} onClick={() => this.goToRoute(route.path)}>
                                     <FontAwesomeIcon icon={route.icon} />
                                     <span style={animationSetyles}>{route.title}</span>
                                 </div>
@@ -70,7 +70,7 @@ export default class Sidebar extends React.Component {
                 <div className='bottom-elem'>
                     {
                         bottomRoutes.map((route) => (
-                            <div className='nav-link'style={navWidth}  key={route.title} onClick={() => this.goToRoute(route.path)}>
+                            <div className='nav-link active'style={width}  key={route.title} onClick={() => this.goToRoute(route.path)}>
                                 <FontAwesomeIcon icon={route.icon} />
                                 <span style={animationSetyles}>{route.title}</span>
                             </div>
